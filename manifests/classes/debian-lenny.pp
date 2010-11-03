@@ -1,22 +1,4 @@
 class os::debian-lenny inherits debian {
-  file { "/etc/apt/sources.list":
-    ensure => absent,
-    before => Exec["apt-get_update"],
-  }
-
-  apt::sources_list{"lenny":
-    source => "puppet:///os/etc/apt/sources.list.d/sources.list-debian-lenny",
-  }
-
-
-  apt::sources_list{"c2c":
-    source => "puppet:///os/etc/apt/sources.list.d/sources.list-c2c-lenny",
-  }
-
-  apt::key {"5C662D02":
-    source  => "http://dev.camptocamp.com/packages/pub.key",
-  }
-
   # general config for emacs (without temporary files ~ )
   file { "/etc/emacs/site-start.d/50c2c.el":
     ensure  => present,

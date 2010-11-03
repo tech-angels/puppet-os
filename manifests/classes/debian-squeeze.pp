@@ -15,24 +15,6 @@ deb-src http://mirror.switch.ch/ftp/mirror/debian-security/ ${lsbdistcodename}/u
   }
 
 
-  apt::sources_list{"c2c":
-     content => "# File managed by puppet - ${name}
-deb http://dev.camptocamp.com/packages ${lsbdistcodename} puppet sysadmin
-deb-src http://dev.camptocamp.com/packages ${lsbdistcodename} puppet sysadmin
-",
-  }
-
-  apt::key {"5C662D02":
-    source  => "http://dev.camptocamp.com/packages/pub.key",
-  }
-
-  apt::preferences { "c2c-mirror":
-    ensure => present,
-    package => "*",
-    pin => "release o=c2c",
-    priority => "1001",
-  }
-
   include locales::sources
   locales::locale {
     "de_DE.ISO-8859-1": charset => "ISO-8859-1";
