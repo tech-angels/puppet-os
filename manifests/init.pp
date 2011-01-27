@@ -13,9 +13,6 @@ class os {
   case $operatingsystem {
     debian: {
       case $lsbdistcodename {
-        squeeze: { 
-          include os::debian-squeeze
-        }
         lenny: {
           include os::debian-lenny
         }
@@ -26,29 +23,6 @@ class os {
       }
     }
 
-    ubuntu: {
-      case $lsbdistcodename {
-        dapper,
-        edgy,
-        feisty,
-        gutsy,
-        hardy,
-        intrepid,
-        jaunty,
-        lucid: {
-          include "os::ubuntu-${lsbdistcodename}"
-          include apt::backports
-        }
-
-        default: {
-          fail "Unsupported Ubuntu version ${lsbdistcodename} in 'os' module"
-        }
-      }
-    }
-
-    CentOS: {
-      include os::centos
-    }
     default: {
       fail "Unsupported OS ${operatingsystem} in 'os' module"
     }
