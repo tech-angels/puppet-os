@@ -34,5 +34,7 @@ export PATH
 # Load RVM if it exists
 [[ -s "/usr/local/lib/rvm" ]] && . "/usr/local/lib/rvm"  # This loads RVM into a shell session.
 
+# add gem to PATH
+[[ -d "/var/lib/gems/1.8/bin" ]] && PATH=${PATH}:/var/lib/gems/1.8/bin
 
 umask 002 
