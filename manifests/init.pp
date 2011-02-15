@@ -16,6 +16,9 @@ class os {
         lenny: {
           include os::debian-lenny
         }
+        squeeze: {
+          include os::debian-squeeze
+        }
 
         default: {
           fail "Unsupported Debian version '${lsbdistcodename}' in 'os' module"
