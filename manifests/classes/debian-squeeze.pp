@@ -1,4 +1,4 @@
-class os::debian-squeeze {
+class os::debian-squeeze inherits debian {
 
   # Umask, etc.
   file { "/etc/profile":
