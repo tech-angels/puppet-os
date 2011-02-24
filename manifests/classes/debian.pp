@@ -31,7 +31,7 @@ class os::debian {
   #
 
   package {"locales-all":
-    ensure => latest,
+    ensure => installed,
   }
 
   file {"/etc/profile.d":
@@ -44,7 +44,7 @@ class os::debian {
   }
 
   package { ["openssl", "openssh-server", "openssh-client", "openssh-blacklist", "ssl-cert" ]:
-    ensure => latest,
+    ensure => installed,
     require => Exec["apt-get_update"]
   }
 
