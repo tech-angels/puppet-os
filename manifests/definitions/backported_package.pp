@@ -20,9 +20,12 @@ define os::backported_package( $ensure, $responsefile="", $install=true) {
       }
     }
   }
+
+  $name_withoutdots = regsubst($name, '\.', '')
+
   case $ensure {
     'present','latest','installed': {
-      common::concatfilepart {$name:
+      common::concatfilepart {$name_withoutdots:
         ensure  => present,
         content => "Package: ${name}\nPin: release a=${lsbdistcodename}-backports\nPin-Priority: 999\n\n",
         file    => "/etc/apt/preferences",
@@ -30,7 +33,7 @@ define os::backported_package( $ensure, $responsefile="", $install=true) {
       }
     }
     'absent','purged': {
-      common::concatfilepart {$name:
+      common::concatfilepart {$name_withoutdots:
         ensure  => absent,
         content => "Package: ${name}\nPin: release a=${lsbdistcodename}-backports\nPin-Priority: 999\n\n",
         file    => "/etc/apt/preferences",
