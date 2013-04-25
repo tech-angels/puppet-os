@@ -19,6 +19,10 @@ class os {
         squeeze: {
           include os::debian-squeeze
         }
+        wheezy: {
+          include os::debian-wheezy
+        }
+
 
         default: {
           fail "Unsupported Debian version '${lsbdistcodename}' in 'os' module"
