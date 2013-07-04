@@ -4,7 +4,7 @@ class os::debian-wheezy inherits debian {
   file { "/etc/profile":
     ensure => present,
     mode   => 644,
-    source => "puppet:///modules/os/etc/profile-lenny",
+    source => "puppet:///modules/os/etc/profile-wheezy",
   }
 
   # Timezone
