@@ -10,12 +10,12 @@ class os::debian-wheezy inherits debian {
   # Timezone
   file { "/etc/localtime":
     ensure => present,
-    source => "file:///usr/share/zoneinfo/Europe/Zurich",
+    source => "file:///usr/share/zoneinfo/Europe/Paris",
   }
 
   file { "/etc/timezone":
     ensure  => present,
-    content => "Europe/Zurich",
+    content => "Europe/Paris",
   }
 
   # Kernel
