@@ -63,4 +63,8 @@ class os::debian {
     hour     => 4,
     minute   => fqdn_rand(60),
   }
+
+  exec { "update-alternatives --set editor /usr/bin/vim.basic":
+    unless => "test /etc/alternatives/editor -ef /usr/bin/vim.basic"
+  }
 }
