@@ -26,14 +26,6 @@ class os::ubuntu {
     "locate": ensure => absent;
   }
   
-  #
-  # Locales
-  #
-
-  package {"locales-all":
-    ensure => installed,
-  }
-
   file {"/etc/profile.d":
     ensure => directory
   }
