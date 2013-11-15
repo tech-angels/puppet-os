@@ -30,6 +30,18 @@ class os {
       }
     }
 
+    ubuntu: {
+      case $lsbdistcodename {
+        precise: {
+          include os::ubuntu-precise
+        }
+
+        default: {
+          fail "Unsupported Debian version '${lsbdistcodename}' in 'os' module"
+        }
+      }
+    }
+
     default: {
       fail "Unsupported OS ${operatingsystem} in 'os' module"
     }
