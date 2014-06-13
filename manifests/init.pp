@@ -22,6 +22,9 @@ class os {
         wheezy: {
           include os::debian-wheezy
         }
+        sid: {
+          include os::debian-sid
+        }
 
 
         default: {
