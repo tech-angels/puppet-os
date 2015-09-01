@@ -4,7 +4,6 @@ class os::debian {
   #
   package {
     "lsof": ensure => present;
-    "tiobench": ensure => present; # Useful for doing IO benchmarks
     "smartmontools": ensure => present; # SMART monitoring
     "at" : ensure => present; # usefull for reboots...
     "unzip": ensure => present;
