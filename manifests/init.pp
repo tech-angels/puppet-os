@@ -29,7 +29,6 @@ class os {
           include os::debian-sid
         }
 
-
         default: {
           fail "Unsupported Debian version '${lsbdistcodename}' in 'os' module"
         }
@@ -46,6 +45,10 @@ class os {
           fail "Unsupported Debian version '${lsbdistcodename}' in 'os' module"
         }
       }
+    }
+
+    fedora: {
+      include os::fedora
     }
 
     default: {
